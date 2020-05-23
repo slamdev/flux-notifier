@@ -31,6 +31,7 @@ func serve(ctx context.Context, port int) (err error) {
 	mux.Handle("/health", http.HandlerFunc(handleHealthRequest))
 	mux.Handle("/metrics", promhttp.Handler())
 	mux.Handle("/v6/events", http.HandlerFunc(handleEventsRequest))
+	mux.Handle("/", http.HandlerFunc(handleWebsocketRequest))
 
 	srv := &http.Server{
 		Addr:    ":" + strconv.FormatInt(int64(port), 10),
