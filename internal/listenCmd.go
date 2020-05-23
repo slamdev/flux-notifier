@@ -20,7 +20,7 @@ var listenCmd = &cobra.Command{
 }
 
 func init() {
-	listenCmd.PersistentFlags().IntP("service-port", "p", 8080, "service port")
+	listenCmd.PersistentFlags().IntP("svc-port", "p", 8080, "service port")
 	cobra.OnInitialize(func() {
 		fillWithEnvVars(listenCmd.Flags())
 	})
