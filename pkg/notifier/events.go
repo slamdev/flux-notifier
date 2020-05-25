@@ -11,7 +11,7 @@ import (
 func handleEventsRequest(w http.ResponseWriter, r *http.Request) {
 	data, err := ioutil.ReadAll(r.Body)
 	if err != nil {
-		logrus.WithError(err).Info("failed to read request body")
+		logrus.WithError(err).Error("failed to read request body")
 	}
 	var e event.Event
 	if err := json.Unmarshal(data, &e); err != nil {
